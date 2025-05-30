@@ -1,3 +1,190 @@
-h1 {
-    color:dodgerblue
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap');
+
+/* Global reset / layout */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Montserrat', sans-serif;
+}
+
+body {
+  padding-bottom: 100px;
+  transition: background 0.3s ease;
+}
+
+/* Footer toolbar and progress bar */
+.toolbar {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  max-width: 1000px;
+  width: 90%;
+  background: #fff;
+  border-radius: 50px;
+  box-shadow: 0 0 6px 0px #878787;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.progress-bar {
+  display: flex;
+  height: 4px;
+  overflow: hidden;
+}
+.progress-segment {
+  flex: 1;
+  margin: 0 1px;
+  cursor: pointer;
+}
+
+.toolbar-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 9px 12px 12px;
+}
+.screen-text {
+  font-weight: 600;
+  margin-left: 20px;
+}
+
+.btn {
+  cursor: pointer;
+  width: 110px;
+  padding: 15px;
+  font-weight: 900;
+  border: none;
+  background-color: #2b3473;
+  color: white;
+  font-size: 1rem;
+  border-radius: 50px;
+}
+
+/* Container styling */
+.container {
+  max-width: 1000px;
+  padding: 25px;
+  margin-top: 40px;
+  border-radius: 15px;
+  /* containerBG is set in JS per screen containerBG property */
+}
+.content-left {
+  margin-left: 0;
+  margin-right: auto;
+}
+.content-middle {
+  margin-left: auto;
+  margin-right: auto;
+}
+.content-right {
+  margin-left: auto;
+  margin-right: 0;
+}
+
+.title-screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 80vh;
+  text-align: center;
+  padding: 1rem;
+}
+
+p {
+  margin: 1rem 0;
+  line-height: 1.5;
+}
+ul {
+  list-style: disc;
+  margin: 1rem 0 1rem 2rem;
+  line-height: 1.5;
+}
+
+/* Flip cards */
+.flipcards {
+  display: flex;
+  gap: 1rem;
+  margin: 1rem 0;
+}
+.flipcard {
+  width: 150px;
+  height: 100px;
+  perspective: 600px;
+  cursor: pointer;
+}
+.flipcard-inner {
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  position: relative;
+}
+.flipcard-front,
+.flipcard-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 0.5rem;
+}
+.flipcard-back {
+  transform: rotateY(180deg);
+}
+.flipped {
+  transform: rotateY(180deg);
+}
+
+/* Table styling */
+table {
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin: 1rem 0;
+  overflow: hidden;
+}
+th,
+td {
+  border-bottom: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  padding: 0.75rem;
+  text-align: left;
+}
+tr th:last-child,
+tr td:last-child {
+  border-right: none;
+}
+tr:last-child td {
+  border-bottom: none;
+}
+
+/* Accordions */
+.accordion-item {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin: 0.5rem 0;
+}
+.accordion-header {
+  padding: 0.75rem;
+  background: #f2f2f2;
+  cursor: pointer;
+  font-weight: 600;
+}
+.accordion-content {
+  padding: 0.75rem;
+  display: none;
+}
+.accordion-content.open {
+  display: block;
 }

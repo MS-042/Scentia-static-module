@@ -1,0 +1,1 @@
+This repo contains all code for the POC static module build.

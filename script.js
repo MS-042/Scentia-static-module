@@ -26,7 +26,7 @@ function renderTitleScreen(app) {
   const titleScreen = document.createElement('div');
   titleScreen.className = 'title-screen';
   titleScreen.innerHTML = `
-    <h1>Welcome to the E-Learning Demo!</h1>
+    <h1 style="padding-bottom: 20px;">JSON content module v1</h1>
     <button id="beginBtn" class="btn">Begin</button>
   `;
   app.appendChild(titleScreen);
@@ -205,6 +205,20 @@ function createToolbar() {
     });
   }
 
+  const backBtn = document.createElement('button');
+  backBtn.className = 'btn';
+  backBtn.textContent = 'Back';
+  
+  backBtn.addEventListener('click', () => {
+    if (currentIndex > 0) {
+      currentIndex--;
+      render();
+    }
+  });
+  
+  backBtn.disabled = (currentIndex === 0);
+
+  toolbarRow.appendChild(backBtn);
   toolbarRow.appendChild(nextBtn);
   toolbar.appendChild(toolbarRow);
 
